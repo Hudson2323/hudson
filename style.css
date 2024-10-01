@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('2.jpg') no-repeat center center fixed; /* Заменяем на ваше изображение */
+    background-size: cover; /* Заполнение всего экрана */
+    font-family: Arial, sans-serif;
+    position: relative; /* Позиционирование для overlay */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    position: relative; /* Позиционирование для overlay */
+    z-index: 1; /* Контейнер выше overlay */
+}
+
+/* Накладка для затемнения */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0); /* Прозрачный черный фон по умолчанию */
+    transition: background-color 0.4s ease; /* Плавный переход для затемнения */
+    z-index: -1; /* Накладка под контейнером */
+}
+
+.logo {
+    font-size: 3em;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.offer {
+    font-size: 1.5em;
+    margin: 20px 0;
+    color: #FFC107;
+}
+
+/* Стили для кнопок */
+.download-button-img {
+    position: absolute;
+    width: 225px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Плавный переход при наведении */
+}
+
+.button-one {
+    position: absolute;
+    left: 15%;
+    bottom: 39%;
+}
+
+.button-two {
+    position: absolute;
+    left: 15%;
+    bottom: 25%;
+}
+
+/* Анимации */
+@keyframes iosAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes androidAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Затемнение фона при наведении */
+.dark-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон при наведении */
+}
+
+/* Стиль для неактивных кнопок */
+.inactive {
+    opacity: 0.5;
+}
+
+.steps {
+    font-size: 1em;
+    margin-top: 30px;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    .download-button-img {
+        width: 200px; /* Увеличиваем ширину кнопок на меньших экранах */
+    }
+    
+    body {
+        background-size: 180% 110%;/* Сдвигаем фон вправо на мобильных устройствах */
+        background-position: left
+    }
+
+    .button-one, .button-two {
+        left: 28%;
+        bottom: auto;
+    }
+
+    .button-one {
+        bottom: 41%;
+    }
+
+    .button-two {
+        bottom: 32%;
+    }
+}
+
+@media (max-width: 480px) {
+    .download-button-img {
+        width: 180px; /* Еще больше увеличиваем кнопки для мобильных */
+    }
+
+    .button-one {
+        bottom: 41%;
+    }
+
+    .button-two {
+        bottom: 32%;
+    }
+}
