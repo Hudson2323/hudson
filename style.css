@@ -7,9 +7,10 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('https://img.freepik.com/free-photo/beautiful-kitten-with-colorful-clouds_23-2150752964.jpg') no-repeat center center fixed;
+    background: url('2.jpg') no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, sans-serif;
+    position: relative; /* Позиционирование для overlay */
 }
 
 .container {
@@ -18,16 +19,40 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    text-align: center;
+    text-align: center; /* Центрирование текста */
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
     padding: 20px;
+    position: relative; /* Позиционирование для overlay */
+    z-index: 1; /* Устанавливаем z-index, чтобы контейнер был выше overlay */
 }
 
+/* Накладка для затемнения */
+.overlay {
+    position: absolute; /* Абсолютное позиционирование для перекрытия фона */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0); /* Полупрозрачный черный фон, изначально прозрачный */
+    transition: background-color 0.4s ease; /* Плавный переход для затемнения */
+    z-index: -1; /* Накладка под контейнером */
+}
+
+/* Стили для логотипа */
 .logo {
     font-size: 3em;
-    font-weight: bold;
-    color: #FFC107;
+    font-weight: bold; /* Жирное начертание шрифта */
+    font-style: italic; /* Курсив */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Цвета для отдельных частей логотипа */
+.bet {
+    color: #FFC107; /* Желтый цвет для BET */
+}
+
+.winner {
+    color: #FFFFFF; /* Белый цвет для WINNER */
 }
 
 .offer {
@@ -38,31 +63,36 @@ body {
 
 /* Анимация кнопки */
 .download-button-img {
-    width: 200px; /* Начальный размер кнопки */
+    width: 260px;
     height: auto;
     cursor: pointer;
-    animation: pulse 2s infinite; /* Цикличная анимация "пульсации" */
-    transition: transform 0.6s ease; /* Более плавная анимация при наведении */
+    transition: transform 0.6s ease; /* Плавный переход при наведении */
+}
+.button-one {
+    position: relative;
+    left: -529px;
+	bottom:-75px;/* Смещаем только первую кнопку */
 }
 
-/* Ключевые кадры для пульсации кнопки */
-@keyframes pulse {
-    0% {
-        transform: scale(1); /* Стандартный размер */
-    }
-    50% {
-        transform: scale(1.1); /* Увеличение кнопки */
-    }
-    100% {
-        transform: scale(1); /* Возврат к исходному размеру */
-    }
+.button-two {
+    position: relative;
+    left: -252px; /* Смещаем только вторую кнопку */
 }
 
 /* Эффект увеличения при наведении */
 .download-button-img:hover {
-    animation: none; /* Отключаем пульсацию при наведении */
-    transform: scale(1.2); /* Увеличиваем размер */
-    transition: transform 0.8s ease; /* Более плавный переход при увеличении */
+    transform: scale(1.1); /* Увеличиваем размер кнопки при наведении */
+    transition: transform 0.8s ease; /* Более плавный переход */
+}
+
+/* Затемнение фона при наведении на кнопку */
+.dark-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон при наведении */
+}
+
+/* Стиль для неактивных кнопок при наведении */
+.inactive {
+    opacity: 0.5; /* Прозрачность для неактивных кнопок */
 }
 
 .steps {
