@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url("2.jpg") no-repeat center center fixed; /* Заменяем на ваше изображение */
+    background-size: cover; /* Заполнение всего экрана */
+    font-family: Arial, sans-serif;
+    position: relative; /* Позиционирование для overlay */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    position: relative; /* Позиционирование для overlay */
+    z-index: 1; /* Контейнер выше overlay */
+}
+
+/* Накладка для затемнения */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0); /* Прозрачный черный фон по умолчанию */
+    transition: background-color 0.4s ease; /* Плавный переход для затемнения */
+    z-index: -1; /* Накладка под контейнером */
+}
+
+.word1 {
+    color: #ffffff; /* Цвет для первого слова */
+}
+
+.word2 {
+    color: #e8f807; /* Цвет для второго слова */
+}
+
+.offer {
+    font-size: 1.5em; /* Размер шрифта */
+    margin: 20px 0;
+    color: #ffc107; /* Цвет текста */
+}
+
+/* Стили для кнопок */
+.download-button-img {
+    position: absolute;
+    width: 260px; /* Ширина кнопки */
+    height: auto; /* Автоматическая высота */
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Плавный переход при наведении */
+}
+
+.button-one {
+    position: fixed;
+    left: 10%;
+    bottom: 48%; /* Расположение кнопки */
+}
+
+.button-two {
+    position: fixed;
+    left: 10%;
+    bottom: 36%; /* Расположение кнопки */
+}
+
+/* Анимации */
+@keyframes iosAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes androidAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Затемнение фона при наведении */
+.dark-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон при наведении */
+}
+
+/* Стиль для неактивных кнопок */
+.inactive {
+    opacity: 0.5; /* Прозрачность для неактивных кнопок */
+}
+
+.logo {
+    position: relative; /* Меняем на относительное позиционирование */
+    top: -20%; /* Убираем вертикальный отступ */
+    left: -33%; /* Центрируем по горизонтали */
+    transform: translateX(-31%); /* Центрируем относительно самого элемента */
+    color: #fff; /* Цвет текста */
+    font-size: 3em; /* Размер шрифта */
+    white-space: nowrap; /* Запрет на перенос текста */
+}
+
+.steps {
+    position: relative; /* Меняем на относительное позиционирование */
+    top: -20%; /* Убираем вертикальный отступ */
+    left: -30%; /* Центрируем по горизонтали */
+    transform: translateX(-30%); /* Центрируем относительно самого элемента */
+    color: #afafaf; /* Цвет текста */
+    white-space: nowrap; /* Запрет на перенос текста */
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    .download-button-img {
+        width: 200px; /* Уменьшаем ширину кнопок на меньших экранах */
+    }
+
+    body {
+        background-size: 180% 110%; /* Сдвигаем фон вправо на мобильных устройствах */
+        background-position: left;
+    }
+
+    .button-one,
+    .button-two {
+        left: 28%;
+    }
+
+    .button-one {
+        bottom: 41%; /* Новое расположение */
+    }
+
+    .button-two {
+        bottom: 32%; /* Новое расположение */
+    }
+
+    .logo {
+        position: relative; /* Убираем фиксированное позиционирование */
+        font-size: 2.1em; /* Уменьшаем размер шрифта для мобильных устройств */
+        top: -129px; /* Новое расположение */
+        left: -14%; /* Центрируем по горизонтали */
+        transform: translate(-14%, -14%); /* Центрируем относительно самого элемента */
+    }
+
+    .steps {
+        position: relative;
+        transform: translate(10%);
+        font-size: 1em; /* Уменьшаем размер шрифта для мобильных устройств */
+        left: -10%; /* Центрируем по горизонтали */
+    }
+}
+
+@media (max-width: 480px) {
+    .download-button-img {
+        width: 202px; /* Еще больше увеличиваем кнопки для мобильных */
+    }
+
+    .logo {
+        position: relative;
+        transform: translateY(-14%);
+        font-size: 2.1em; /* Уменьшаем размер шрифта для очень маленьких экранов */
+        left: -14%; /* Центрируем по горизонтали */
+    }
+
+    .steps {
+        position: relative;
+        transform: translate(10%,0);
+        font-size: 0.8em; /* Уменьшаем размер шрифта для очень маленьких экранов */
+        left: -10%; /* Центрируем по горизонтали */
+    }
+}
